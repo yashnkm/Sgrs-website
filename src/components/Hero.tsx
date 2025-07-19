@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { motion, useInView, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { lenisScrollTo } from '../utils/lenisScrollTo';
 import { animateSplitText } from '../utils/splitTextAnimations';
 
@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const isInView = useInView(heroRef, { once: true, amount: 0.3 });
+  // const isInView = useInView(heroRef, { once: true, amount: 0.3 });
   
   // Check for reduced motion preference
   const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

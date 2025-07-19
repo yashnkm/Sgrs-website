@@ -21,7 +21,7 @@ export const initializeLenisScroll = () => {
     smoothWheel: true, // Smooth wheel scrolling
     wheelMultiplier: 1, // Wheel sensitivity
     touchMultiplier: 2, // Touch sensitivity
-    normalizeWheel: true, // Normalize wheel delta
+    // normalizeWheel: true, // Normalize wheel delta (removed - not available in this version)
     infinite: false, // Infinite scrolling
   });
 
@@ -36,8 +36,8 @@ export const initializeLenisScroll = () => {
   gsap.ticker.lagSmoothing(0);
 
   // Optional: Log scroll events for debugging
-  lenis.on('scroll', (e: any) => {
-    // console.log('Lenis scroll:', e);
+  lenis.on('scroll', () => {
+    // console.log('Lenis scroll event');
   });
 
   return lenis;

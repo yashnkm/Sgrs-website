@@ -378,7 +378,7 @@ const TechnicalCapabilities: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 2.2 }}
             >
-              {equipmentItems.map((item, index) => (
+              {equipmentItems.map((item) => (
                 <div key={item.id} className="w-full flex-shrink-0 px-4">
                   <div className="bg-slate-800 rounded-xl overflow-hidden">
                     <div className="relative h-64 overflow-hidden">

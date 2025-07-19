@@ -13,7 +13,7 @@ const ServiceOverview: React.FC = () => {
       // Animate section title
       createSplitTextAnimation(titleRef.current, 'slideInLeft', {
         type: 'words',
-        trigger: sectionRef.current as Element,
+        trigger: sectionRef.current,
         start: "top 75%",
         stagger: 0.1
       });
@@ -21,7 +21,7 @@ const ServiceOverview: React.FC = () => {
       // Animate section description
       createSplitTextAnimation(descriptionRef.current, 'fadeInUp', {
         type: 'words',
-        trigger: sectionRef.current as Element,
+        trigger: sectionRef.current,
         start: "top 70%",
         delay: 0.3,
         stagger: 0.05
@@ -84,17 +84,17 @@ const ServiceOverview: React.FC = () => {
                   const descElement = el.querySelector('.service-description');
                   
                   if (titleElement && descElement) {
-                    createSplitTextAnimation(titleElement as Element, 'fadeInUp', {
+                    createSplitTextAnimation(titleElement, 'fadeInUp', {
                       type: 'words',
-                      trigger: el as Element,
+                      trigger: el,
                       start: "top 85%",
                       delay: index * 0.1,
                       stagger: 0.05
                     });
                     
-                    createSplitTextAnimation(descElement as Element, 'fadeInUp', {
+                    createSplitTextAnimation(descElement, 'fadeInUp', {
                       type: 'words',
-                      trigger: el as Element,
+                      trigger: el,
                       start: "top 80%",
                       delay: (index * 0.1) + 0.2,
                       stagger: 0.02

@@ -11,7 +11,7 @@ const WhyChooseUs: React.FC = () => {
       // Animate title with slide in right effect
       createSplitTextAnimation(titleRef.current, 'slideInRight', {
         type: 'words',
-        trigger: sectionRef.current as Element,
+        trigger: sectionRef.current,
         start: "top 75%",
         stagger: 0.08
       });
@@ -19,7 +19,7 @@ const WhyChooseUs: React.FC = () => {
       // Animate description with fade in up
       createSplitTextAnimation(descriptionRef.current, 'fadeInUp', {
         type: 'words',
-        trigger: sectionRef.current as Element,
+        trigger: sectionRef.current,
         start: "top 70%",
         delay: 0.4,
         stagger: 0.03

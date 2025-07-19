@@ -15,7 +15,7 @@ export interface SplitTextConfig {
   delay?: number;
   stagger?: number;
   ease?: string;
-  trigger?: string;
+  trigger?: string | Element | null;
   scrub?: boolean | number;
   start?: string;
   end?: string;
@@ -89,7 +89,7 @@ export const createSplitTextAnimation = (
     delay: 0,
     stagger: 0.05,
     ease: "power2.out",
-    trigger: element as Element,
+    trigger: element,
     start: "top 80%",
     end: "bottom 20%",
     scrub: false
@@ -159,7 +159,7 @@ export const createMaskedTextReveal = (
     duration: 1.2,
     stagger: 0.1,
     ease: "power3.out",
-    trigger: element as Element,
+    trigger: element,
     start: "top 85%",
     ...config
   };

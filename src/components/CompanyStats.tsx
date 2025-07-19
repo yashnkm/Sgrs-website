@@ -20,17 +20,17 @@ const CompanyStats: React.FC = () => {
         const labelElement = document.querySelector(`.stat-label-${index}`);
         
         if (numberElement && labelElement) {
-          createSplitTextAnimation(numberElement as Element, 'scaleUp', {
+          createSplitTextAnimation(numberElement, 'scaleUp', {
             type: 'chars',
-            trigger: sectionRef.current as Element,
+            trigger: sectionRef.current,
             start: "top 80%",
             delay: index * 0.1,
             stagger: 0.05
           });
           
-          createSplitTextAnimation(labelElement as Element, 'fadeInUp', {
+          createSplitTextAnimation(labelElement, 'fadeInUp', {
             type: 'words',
-            trigger: sectionRef.current as Element,
+            trigger: sectionRef.current,
             start: "top 75%",
             delay: (index * 0.1) + 0.3,
             stagger: 0.1
