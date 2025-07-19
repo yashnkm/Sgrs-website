@@ -1,17 +1,17 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { createSplitTextAnimation } from '../utils/splitTextAnimations';
 
 const WhyChooseUs: React.FC = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     if (titleRef.current && descriptionRef.current) {
       // Animate title with slide in right effect
       createSplitTextAnimation(titleRef.current, 'slideInRight', {
         type: 'words',
-        trigger: sectionRef.current || undefined,
+        trigger: sectionRef.current as Element,
         start: "top 75%",
         stagger: 0.08
       });
@@ -19,7 +19,7 @@ const WhyChooseUs: React.FC = () => {
       // Animate description with fade in up
       createSplitTextAnimation(descriptionRef.current, 'fadeInUp', {
         type: 'words',
-        trigger: sectionRef.current || undefined,
+        trigger: sectionRef.current as Element,
         start: "top 70%",
         delay: 0.4,
         stagger: 0.03

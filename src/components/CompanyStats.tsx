@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { createSplitTextAnimation } from '../utils/splitTextAnimations';
 
 const CompanyStats: React.FC = () => {
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
   
   const stats = [
     { number: "500+", label: "Projects Completed" },
@@ -20,17 +20,17 @@ const CompanyStats: React.FC = () => {
         const labelElement = document.querySelector(`.stat-label-${index}`);
         
         if (numberElement && labelElement) {
-          createSplitTextAnimation(numberElement, 'scaleUp', {
+          createSplitTextAnimation(numberElement as Element, 'scaleUp', {
             type: 'chars',
-            trigger: sectionRef.current || undefined,
+            trigger: sectionRef.current as Element,
             start: "top 80%",
             delay: index * 0.1,
             stagger: 0.05
           });
           
-          createSplitTextAnimation(labelElement, 'fadeInUp', {
+          createSplitTextAnimation(labelElement as Element, 'fadeInUp', {
             type: 'words',
-            trigger: sectionRef.current || undefined,
+            trigger: sectionRef.current as Element,
             start: "top 75%",
             delay: (index * 0.1) + 0.3,
             stagger: 0.1

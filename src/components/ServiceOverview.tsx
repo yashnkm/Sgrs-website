@@ -1,11 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { lenisScrollTo } from '../utils/lenisScrollTo';
 import { createSplitTextAnimation } from '../utils/splitTextAnimations';
 
 const ServiceOverview: React.FC = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
 
   // Initialize SplitText animations on scroll
   useEffect(() => {
@@ -13,7 +13,7 @@ const ServiceOverview: React.FC = () => {
       // Animate section title
       createSplitTextAnimation(titleRef.current, 'slideInLeft', {
         type: 'words',
-        trigger: sectionRef.current || undefined,
+        trigger: sectionRef.current as Element,
         start: "top 75%",
         stagger: 0.1
       });
@@ -21,7 +21,7 @@ const ServiceOverview: React.FC = () => {
       // Animate section description
       createSplitTextAnimation(descriptionRef.current, 'fadeInUp', {
         type: 'words',
-        trigger: sectionRef.current || undefined,
+        trigger: sectionRef.current as Element,
         start: "top 70%",
         delay: 0.3,
         stagger: 0.05
@@ -84,17 +84,17 @@ const ServiceOverview: React.FC = () => {
                   const descElement = el.querySelector('.service-description');
                   
                   if (titleElement && descElement) {
-                    createSplitTextAnimation(titleElement, 'fadeInUp', {
+                    createSplitTextAnimation(titleElement as Element, 'fadeInUp', {
                       type: 'words',
-                      trigger: el,
+                      trigger: el as Element,
                       start: "top 85%",
                       delay: index * 0.1,
                       stagger: 0.05
                     });
                     
-                    createSplitTextAnimation(descElement, 'fadeInUp', {
+                    createSplitTextAnimation(descElement as Element, 'fadeInUp', {
                       type: 'words',
-                      trigger: el,
+                      trigger: el as Element,
                       start: "top 80%",
                       delay: (index * 0.1) + 0.2,
                       stagger: 0.02

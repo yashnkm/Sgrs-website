@@ -1,12 +1,12 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useTransform } from 'framer-motion';
 import { lenisScrollTo } from '../utils/lenisScrollTo';
-import { createSplitTextAnimation, animateSplitText } from '../utils/splitTextAnimations';
+import { animateSplitText } from '../utils/splitTextAnimations';
 
 const Hero: React.FC = () => {
-  const heroRef = useRef(null);
-  const titleRef = useRef(null);
-  const subtitleRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
   const isInView = useInView(heroRef, { once: true, amount: 0.3 });
   
   // Check for reduced motion preference
@@ -61,74 +61,11 @@ const Hero: React.FC = () => {
       if (subtitleRef.current) subtitleRef.current.style.visibility = 'visible';
     }
   }, [prefersReducedMotion]);
-
-  // Animation variants (respect reduced motion)
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: prefersReducedMotion ? 0.1 : 0.6,
-        staggerChildren: prefersReducedMotion ? 0.05 : 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 10 : 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: prefersReducedMotion ? 0.2 : 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const titleVariants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 10 : 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: prefersReducedMotion ? 0.2 : 1,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const statsVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: prefersReducedMotion ? 0.1 : 0.6,
-        staggerChildren: prefersReducedMotion ? 0.02 : 0.1,
-        delayChildren: prefersReducedMotion ? 0.1 : 0.8
-      }
-    }
-  };
-
-  const statItemVariants = {
-    hidden: { opacity: 0, scale: prefersReducedMotion ? 0.95 : 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: prefersReducedMotion ? 0.15 : 0.5,
-        ease: prefersReducedMotion ? "easeOut" : "backOut"
-      }
-    }
-  };
   return (
-    <motion.section 
+    <section 
       ref={heroRef}
       className="relative h-[80vh] min-h-[500px] w-full bg-cover bg-center text-white overflow-hidden"
       onMouseMove={handleMouseMove}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={containerVariants}
     >
       {/* Animated Background */}
       <motion.div
@@ -213,13 +150,8 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8, delay: 1 }}
       >
         <div className="container mx-auto">
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-white"
-            variants={statsVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={statItemVariants}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center text-white">
+            <div>
               <motion.p 
                 className="font-bold text-xl"
                 initial={{ scale: 0 }}
@@ -229,8 +161,8 @@ const Hero: React.FC = () => {
                 15+ Years
               </motion.p>
               <p className="text-sm text-slate-300">Experience</p>
-            </motion.div>
-            <motion.div variants={statItemVariants}>
+            </div>
+            <div>
               <motion.p 
                 className="font-bold text-xl"
                 initial={{ scale: 0 }}
@@ -240,8 +172,8 @@ const Hero: React.FC = () => {
                 500+
               </motion.p>
               <p className="text-sm text-slate-300">Projects Completed</p>
-            </motion.div>
-            <motion.div variants={statItemVariants}>
+            </div>
+            <div>
               <motion.p 
                 className="font-bold text-xl"
                 initial={{ scale: 0 }}
@@ -251,11 +183,11 @@ const Hero: React.FC = () => {
                 ISO Certified
               </motion.p>
               <p className="text-sm text-slate-300">Quality Assured</p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </motion.div>
-    </motion.section>
+    </section>
   );
 };
 
