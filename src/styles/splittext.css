@@ -1,0 +1,68 @@
+/* SplitText Animation Styles */
+
+/* Hide text elements initially to prevent flash of unstyled content */
+.text-split-title,
+.text-split-subtitle,
+.text-split-description,
+.service-title,
+.service-description {
+  visibility: hidden;
+}
+
+/* Ensure proper overflow for text animations */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Character and word animation setup */
+.split-char,
+.split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Prevent text selection during animations */
+.text-split-title,
+.text-split-subtitle,
+.text-split-description {
+  user-select: none;
+}
+
+/* Re-enable text selection after animations complete */
+.split-animation-complete {
+  user-select: text;
+}
+
+/* Responsive considerations for split text */
+@media (max-width: 768px) {
+  .text-split-title {
+    line-height: 1.2;
+  }
+  
+  .text-split-subtitle {
+    line-height: 1.4;
+  }
+}
+
+/* Stats specific styling */
+.stat-number-0,
+.stat-number-1,
+.stat-number-2,
+.stat-number-3,
+.stat-number-4,
+.stat-label-0,
+.stat-label-1,
+.stat-label-2,
+.stat-label-3,
+.stat-label-4 {
+  visibility: hidden;
+}
+
+/* Performance optimization */
+.split-char,
+.split-word,
+.split-line {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}

@@ -1,0 +1,46 @@
+SERVICE OVERVIEW SECTION
+========================
+
+Purpose: Showcase the main services offered by Shree Ganesh Refrigeration System
+
+Services to highlight:
+1. HVAC Design & Installation
+   - Custom air conditioning systems
+   - Ventilation design and implementation
+   - Heating solutions for industrial spaces
+
+2. Cleanroom Solutions
+   - Pharmaceutical grade cleanrooms
+   - ISO certified cleanroom construction
+   - Temperature and humidity control systems
+
+3. Industrial Refrigeration
+   - Cold storage facilities
+   - Commercial refrigeration systems
+   - Industrial cooling solutions
+
+4. Maintenance & Support
+   - 24/7 emergency support
+   - Preventive maintenance programs
+   - System upgrades and retrofitting
+
+Design Requirements:
+- Professional and modern layout
+- Use subtle animations with GSAP/Framer Motion
+- Include icons for each service
+- Responsive grid layout
+- Call-to-action buttons for each service
+- Professional color scheme matching brand
+
+Visual Elements:
+- Service cards with hover effects
+- Professional icons or illustrations
+- Clean typography
+- Subtle shadows and gradients
+- Interactive elements
+
+Content Structure:
+- Section title: "Our Core Services"
+- Brief section description
+- 4 main service cards
+- Each card: icon, title, description, CTA button
